@@ -12,7 +12,6 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./data/ssl/:/etc/nginx/certs
-      - /Volumes/MNHD2:/mnt/MNHD2
     environment:
       DHPARAM_BITS: 2048
       DHPARAM_GENERATION: "false"
@@ -90,6 +89,7 @@ services:
       - ./data/skeleton/:/skeleton
       - ./data/additional.config.php:/var/www/html/config/additional.config.php:ro
       - ./data/shared:/shared
+      - /Volumes/MNHD2:/mnt/MNHD2
     ports:
       - "${PORTBASE:-800}0:80"
     depends_on:
@@ -111,6 +111,7 @@ services:
       - '${ADDITIONAL_APPS_PATH:-./data/apps-extra}:/var/www/html/apps-extra'
       - ./data/skeleton/:/skeleton
       - ./data/additional.config.php:/var/www/html/config/additional.config.php:ro
+      - /Volumes/MNHD2:/mnt/MNHD2
     ports:
       - "${PORTBASE:-800}1:80"
     depends_on:
@@ -133,6 +134,7 @@ services:
       - ./data/skeleton/:/skeleton
       - ./docker/configs/config.php:/var/www/html/config/writable.config.php:ro
       - ./data/additional.config.php:/var/www/html/config/additional.config.php:ro
+      - /Volumes/MNHD2:/mnt/MNHD2
     depends_on:
       - database-mysql
       - redis
