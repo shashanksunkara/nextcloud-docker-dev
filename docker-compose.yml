@@ -12,6 +12,7 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./data/ssl/:/etc/nginx/certs
+      - /Volumes/MNHD2:/mnt/MNHD2
     environment:
       DHPARAM_BITS: 2048
       DHPARAM_GENERATION: "false"
